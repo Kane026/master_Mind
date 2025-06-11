@@ -9,7 +9,11 @@ print("MasterMind")
 import random
 
 def generate_Code(length=4, digits=6):
-    return [str(random.randint(1, digits)) for _ in range(length)]
+    color_list = ['Red', 'Blue', 'Yellow', 'Purple']
+    random_color_list = random.sample(color_list, 4)
+    return random_color_list
+    # return [str(random.randstr(1, digits)) for _ in range(length)]
+    # return [str(random.randint(1, digits)) for _ in range(length)]
 
 def get_Feedback(secret, guess):
     black_Pegs = sum(s == g for s, g in zip(secret, guess))
@@ -42,7 +46,7 @@ def play_Mastermind():
         valid_Guess = False
         while not valid_Guess:
             guess = input(f"Attempt {attempt}: ").strip()
-            valid_Guess = len(guess) == 4 and all(c in "123456" for c in guess)
+            valid_Guess = len(guess) == 4 and all(c in "Red , Blue, Yellow, Purple" for c in guess)
             if not valid_Guess:
                 print("Invalid input. Enter 4 digits, each from 1 to 6.")
             if guess == "cheat": passwordinput = input("Input password") 
